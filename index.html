@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>Studio Ghibli Characters!</h1>
-    <h2>Search a character by name to see who they are and some basic facts!</h2>
+    <h1 id="mainHeading">Studio Ghibli Characters!</h1>
+    <h2 id="blurb">Search a character by name to see who they are and some basic facts!</h2>
     <form>
-        <label for="search">Search name here:</label>
+        <label id="label" for="search">Search name here:</label>
         <input type="text" name="search" id="search" placeholder="Type name here...">
-        <input onclick="getPersonResults()" type="button" value="Click Here!">
+        <input onclick="getPersonResults()" type="button" id="button" value="Click Here!">
     </form>
     <div id="searchContainer"></div>
     <hr>

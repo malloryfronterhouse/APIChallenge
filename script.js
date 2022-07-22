@@ -1,14 +1,11 @@
 const baseUrl = "https://ghibliapi.herokuapp.com"
-const containerDiv = document.getElementById("container")
 
 const searchDiv = document.getElementById("searchContainer")
+const containerDiv = document.getElementById("container")
 
-const peepName = 
-
-fetch(baseUrl)
-.then (res => res.json())
+fetch("https://ghibliapi.herokuapp.com")
+.then(res => res.json())
 .then(data => {
-    console.log(data.results)
-
-    data.results.forEach()
+    console.log(data)
 })
+.catch(error => console.log(error))
