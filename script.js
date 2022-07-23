@@ -11,12 +11,9 @@ fetch(baseUrl)
 })
 .catch(error => (console.log(`Error: ${error}`)))
 
-films.results.forEach(films => {
-        makeFilmDiv(image, movie, divForInfo)
-})
 
 getFilmResults = () => {
-    const searchInput = getElementById("search")
+    const searchInput = document.getElementById("search")
 
     fetch(`https://ghibliapi.herokuapp.com/films${searchInput}`)
     .then(res => res.json())
@@ -29,6 +26,8 @@ getFilmResults = () => {
         makeFilmDiv(image, movie, divForInfo)
     })
 
+    searchContainer.appendChild(getFilmResults)
+
     searchInput.value = ""
 }
 
@@ -36,13 +35,17 @@ const makeFilmDiv = (image, movie, divForInfo) => {
     const filmDiv = document.createElement('div')
 
     const filmPic = document.createElement('img')
-    const filmName = document.createElement("h3")
+    const title = document.createElement("h3")
 
     filmPic.src = image
-    filmName = movie
+    title.textContent = movie
     
     filmDiv.appendChild(filmPic)
-    filmDiv.appendChild(filmName)
+    filmDiv.appendChild(title)
 
     divForInfo.appendChild(filmDiv)
+
+    films.results.forEach(films => {
+        makeFilmDiv(image, movie, divForInfo)
+})
 }
