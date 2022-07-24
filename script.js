@@ -1,18 +1,21 @@
 const baseUrl = "https://ghibliapi.herokuapp.com/films"
+const containerDiv = document.getElementById('container')
 
-const searchDiv = document.getElementById("searchContainer")
-const containerDiv = document.getElementById("container")
+const searchDiv = document.getElementById('searchContainer')
 
 
 fetch(baseUrl)
 .then(res => res.json())
-.then(films => {
-    console.log(films)
+.then(data => {
+    console.log(data)
+    data.forEach(film => {
+        makeFilmDiv(film.image, film.title, film.description, containerDiv)
+    });
 })
-.catch(error => (console.log(`Error: ${error}`)))
+// .catch(error => (console.log(`Error: ${error}`)))
 
 
-getFilmResults = () => {
+/*getFilmResults = () => {
     const searchInput = document.getElementById("search")
 
     fetch(`https://ghibliapi.herokuapp.com/films${searchInput}`)
@@ -22,30 +25,27 @@ getFilmResults = () => {
     })
     .catch(error => (console.log(`Error: ${error}`)))
 
-    films.results.forEach(films => {
-        makeFilmDiv(image, movie, divForInfo)
-    })
-
-    searchContainer.appendChild(getFilmResults)
 
     searchInput.value = ""
-}
+} */
 
-const makeFilmDiv = (image, movie, divForInfo) => {
+const makeFilmDiv = (image, title, description, divForInfo) => {
     const filmDiv = document.createElement('div')
-
     const filmPic = document.createElement('img')
-    const title = document.createElement("h3")
+    const filmTitle = document.createElement("h3")
+    const filmDescription = document.createElement('p')
 
     filmPic.src = image
-    title.textContent = movie
+    filmPic.style = "height: 600px; width: auto;"
+    filmTitle.textContent = title
+    filmTitle.style = "color: aqua; font-size: 2.25rem;"
+    filmDescription.textContent = description
+    filmDescription.style = "color: lightpink; font-size: 1.5rem; text-align: center;"
     
     filmDiv.appendChild(filmPic)
-    filmDiv.appendChild(title)
+    filmDiv.appendChild(filmTitle)
+    filmDiv.appendChild(filmDescription)
 
     divForInfo.appendChild(filmDiv)
 
-    films.results.forEach(films => {
-        makeFilmDiv(image, movie, divForInfo)
-})
 }
