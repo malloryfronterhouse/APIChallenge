@@ -1,25 +1,27 @@
  body {
-    background-color: lightgreen;
+    background-color: #60B5C2;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #mainHeading {
-    color: lightpink;
+    color: #B97B77;
     font-weight: bolder;
-    font-size: 3rem;
+    font-size: 4rem;
+    text-shadow: 1.5px 1.5px 1.5px black;
     text-align: center;
-    border: 4px solid lightpink;
+    border: 4px solid #394063;
     border-radius: 70px;
-    background-color: aqua;
+    background-color: rgb(97, 190, 221);
     margin-top: 50px;
 }
 
 #blurb {
-    color: lightpink;
+    color: #B97B77;
     text-align: center;
     font-size: 1.75rem;
     text-decoration: underline;
-    text-decoration-color: aqua;
+    text-decoration-color: #394063;
+    text-shadow: 1px 1px 1px black;
 }
 
 form {
@@ -27,33 +29,34 @@ form {
 }
 
 #label {
-    color: lightpink;
+    color: #394063;
     font-size: 1.5rem;
     font-weight: bolder;
     text-decoration: underline;
-    text-decoration-color: aqua;
-    margin-left: 50px;
+    text-decoration-color: #B97B77;
+    margin-left: 150px;
+    text-shadow: 0.75px 0.75px 0.75px black;
 }
 
 #search {
-    background-color: aqua;
-    color: lightpink;
+    background-color: #B97B77;
+    color: #60B5C2;
     font-size: 1.25rem;
     border-radius: 20px;
     text-align: center;
     box-shadow: 1.5px 1.5px 1.5px black;
-    margin-left: 50px;
+    margin-left: 25px;
 }
 
 ::placeholder {
-    color: lightpink;
+    color: #60B5C2;
 }
 
 #button {
-    background-color: lightpink;
-    color: lightgreen;
+    background-color: #394063;
+    color: #60B5C2;
     font-size: 1.25rem;
-    margin-left: 50px;
+    margin-left: 100px;
     border-radius: 30px;
     height: 40px;
     box-shadow: 1.25px 1.25px 1.25px black;
