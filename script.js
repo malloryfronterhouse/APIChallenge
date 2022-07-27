@@ -18,6 +18,7 @@ fetch(baseUrl)
 
 
 function getFilmResults() {
+
     let searchInput = document.getElementById('search')
     let dataUrl = `https://ghibliapi.herokuapp.com/films/?title=${searchInput.value}`
     
@@ -47,11 +48,12 @@ const makeFilmDiv = (image, title, description, divForInfo) => {
     const filmDescription = document.createElement('p')
     
     filmPic.src = image
-    filmPic.style = "height: 600px; width: auto;"
+    filmPic.setAttribute("id", "apiImages")
+    filmPic.style = "height: 600px; width: auto; display: block; margin-left:auto; margin-right: auto; margin-top: 50px;"
     filmTitle.textContent = title
-    filmTitle.style = "color: #394063; font-size: 2.25rem;"
+    filmTitle.style = "color: #394063; font-size: 2.25rem; text-align: center;"
     filmDescription.textContent = description
-    filmDescription.style = "color: #B97B77; font-size: 1.5rem; text-align: center;"
+    filmDescription.style = "color: #B97B77; font-size: 1.5rem; text-align: center; padding: 30px;"
     
     filmDiv.appendChild(filmPic)
     filmDiv.appendChild(filmTitle)
