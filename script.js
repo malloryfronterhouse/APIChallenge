@@ -20,23 +20,17 @@ fetch(baseUrl)
 function getFilmResults() {
 
     let searchInput = document.getElementById('search')
-    let dataUrl = `https://ghibliapi.herokuapp.com/films/?title=${searchInput.value}`
-    
-    
-    fetch(`https://ghibliapi.herokuapp.com/films/?title=${searchInput.value}`)
+
+    fetch(`https://ghibliapi.herokuapp.com/films/`)
     .then(res => res.json())
     .then(data => {
-        console.log(data)
-        makeFilmDiv(data[0].image, data[0].title, data[0].description, searchDiv)
+        const filmResult = data.filter(film => film.title.toLowerCase().includes(searchInput.value.toLowerCase()))
+        console.log(filmResult)
+        makeFilmDiv(filmResult[0].image, filmResult[0].title, filmResult[0].description, searchDiv)
     })
     .catch(error => (console.log(`Error: ${error}`)))
     
-    if (film => film.title === searchInput.value) {
-        console.log(dataUrl)
-    } else {
-        console.log("Error! Try again!")
-    }
-    // document.getElementById('container').innerHTML = makeFilmDiv()
+    searchDiv.innerHTML = ""
 }
 
 document.getElementById("button").onclick = function() {getFilmResults()}
@@ -48,12 +42,12 @@ const makeFilmDiv = (image, title, description, divForInfo) => {
     const filmDescription = document.createElement('p')
     
     filmPic.src = image
-    filmPic.setAttribute("id", "apiImages")
-    filmPic.style = "height: 600px; width: auto; display: block; margin-left:auto; margin-right: auto; margin-top: 50px;"
+    filmPic.setAttribute("class", "apiImages")
+    filmPic.style = "height: 400px; width: auto; display: block; margin-left:auto; margin-right: auto; margin-top: 50px;"
     filmTitle.textContent = title
-    filmTitle.style = "color: #394063; font-size: 2.25rem; text-align: center;"
+    filmTitle.style = "color: #394063; font-size: 2.25rem; text-align: center; margin-top: 50px; text-shadow: .5px .5px .5px black;"
     filmDescription.textContent = description
-    filmDescription.style = "color: #B97B77; font-size: 1.5rem; text-align: center; padding: 30px;"
+    filmDescription.style = "color: #B97B77; font-size: 1.25rem; text-align: center; padding: 40px; text-shadow: .75px .75px .75px black;"
     
     filmDiv.appendChild(filmPic)
     filmDiv.appendChild(filmTitle)
